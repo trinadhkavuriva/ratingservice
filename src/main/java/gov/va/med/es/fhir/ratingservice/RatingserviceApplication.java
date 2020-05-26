@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
-@EnableAdminServer
+//@EnableAdminServer
 @SpringBootApplication
 @ComponentScan(basePackages = {"gov.va.med.es.fhir.ratingservice", "gov.va.med.es.fhir.ratingservice.config",
 		"gov.va.med.es.fhir.ratingservice.controller"})

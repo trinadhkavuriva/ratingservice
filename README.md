@@ -7,6 +7,5 @@ mvn -Dmaven.wagon.http.ssl.insecure=true clean install
 
 2. start spring boot with 
 
-mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8888"
-
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888"
 
