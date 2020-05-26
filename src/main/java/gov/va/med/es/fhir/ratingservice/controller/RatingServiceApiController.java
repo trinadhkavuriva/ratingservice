@@ -24,6 +24,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,7 +51,9 @@ public class RatingServiceApiController {
 	}
 
 	@RequestMapping(value = "/{patientId}/read", produces = { "application/json" }, method = RequestMethod.GET)
-	public ResponseEntity<RatingResponse> readUsingGET(String patientId,
+	public ResponseEntity<RatingResponse> readUsingGET(
+			//@PathVariable String patientId,
+			@PathVariable(value = "patientId", required=true) String patientId,
 			@RequestHeader(value = "token", required = true) String token) {
 
 		RatingResponse response = new RatingResponse();
