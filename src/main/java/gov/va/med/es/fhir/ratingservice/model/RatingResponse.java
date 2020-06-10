@@ -1,6 +1,7 @@
 package gov.va.med.es.fhir.ratingservice.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class RatingResponse {
 
 	private String age;
 
-	private String dob;
+	private Date dob;
 
 	private String sex;
 
@@ -83,11 +84,11 @@ public class RatingResponse {
 		this.age = age;
 	}
 
-	public String getDob() {
+	public Date getDob() {
 		return dob;
 	}
 
-	public void setDob(String dob) {
+	public void setDob(Date dob) {
 		this.dob = dob;
 	}
 

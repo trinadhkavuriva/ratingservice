@@ -52,8 +52,8 @@ public class RatingServiceApiController {
 
 	@RequestMapping(value = "/{patientId}/read", produces = { "application/json" }, method = RequestMethod.GET)
 	public ResponseEntity<RatingResponse> readUsingGET(
-			//@PathVariable String patientId,
-			@PathVariable(value = "patientId", required=true) String patientId,
+			// @PathVariable String patientId,
+			@PathVariable(value = "patientId", required = true) String patientId,
 			@RequestHeader(value = "token", required = true) String token) {
 
 		RatingResponse response = new RatingResponse();
@@ -69,7 +69,7 @@ public class RatingServiceApiController {
 		// call ES with edipi to pull the rest of the rating for this patient.
 
 		RatingData ratingData = new RatingData();
-		ratingData.setCombinedEvalEffectiveDt((new Date()).toString());
+		ratingData.setCombinedEvalEffectiveDt((new Date()));
 		ratingData.setCombinedEvalPercent("70%");
 
 		RatedDisability ratedDisability = new RatedDisability();
@@ -111,12 +111,12 @@ public class RatingServiceApiController {
 					errorMessage.setDescription(value);
 					response.addMessage(errorMessage);
 				}
-				
-				if ( headers.length <= 0 ) {
+
+				if (headers.length <= 0) {
 					errorMessage.setCode(httpStatusCode);
 					response.addMessage(errorMessage);
 				}
-				
+
 				return;
 			}
 
@@ -161,10 +161,7 @@ public class RatingServiceApiController {
 		}
 		response.setSex(patient.getGender().getDisplay());
 		Date dob = patient.getBirthDate();
-		SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
-
-		String dobString = format.format(dob);
-		response.setDob(dobString);
+		response.setDob(dob);
 
 		List<Identifier> identifiers = patient.getIdentifier();
 		for (Identifier identifier : identifiers) {

@@ -5,18 +5,20 @@ import java.util.List;
 
 public class RatingData {
 
-	List<String> messages = new ArrayList<>();
-	List<String> devMessages = new ArrayList<>();
-	
-	
-	
 	// Combined Evaluation Service Connected
 	private String combinedEvalPercent;
-
+	
+	//this is imprecise date in ES
 	private String combinedEvalEffectiveDt;
+	private List<RatedDisabilityData> ratedDisabilities;
 
-	private List<RatedDisability> ratedDisabilities;
+	List<String> messages = new ArrayList<>();
+	List<String> devMessages = new ArrayList<>();
 
+	String serviceTitle;
+	String disabilitiesHeader;
+	
+	
 	public String getCombinedEvalPercent() {
 		return combinedEvalPercent;
 	}
@@ -33,35 +35,51 @@ public class RatingData {
 		this.combinedEvalEffectiveDt = combinedEvalEffectiveDt;
 	}
 
-	public List<RatedDisability> getRatedDisabilities() {
+	public List<RatedDisabilityData> getRatedDisabilities() {
 		return ratedDisabilities;
 	}
 
-	public void setRatedDisabilities(List<RatedDisability> ratedDisabilities) {
+	public void setRatedDisabilities(List<RatedDisabilityData> ratedDisabilities) {
 		this.ratedDisabilities = ratedDisabilities;
 	}
-	
-	
-	public void addRatedDisability(RatedDisability ratedDisability) {
-		if ( ratedDisabilities == null ) {
-			ratedDisabilities = new ArrayList<RatedDisability>();
+
+	public void addRatedDisability(RatedDisabilityData ratedDisability) {
+		if (ratedDisabilities == null) {
+			ratedDisabilities = new ArrayList<RatedDisabilityData>();
 		}
 		ratedDisabilities.add(ratedDisability);
 	}
 
-	
-	public void addMessage(String message) {
-		if ( this.messages == null ) {
-			this.messages = new ArrayList<String>();
-		}
-		this.messages.add(message);
+	public List<String> getMessages() {
+		return messages;
 	}
-	
-	
-	public void addDevMessage(String message) {
-		if ( this.devMessages == null ) {
-			this.devMessages = new ArrayList<String>();
-		}
-		this.devMessages.add(message);
+
+	public void setMessages(List<String> messages) {
+		this.messages = messages;
 	}
+
+	public List<String> getDevMessages() {
+		return devMessages;
+	}
+
+	public void setDevMessages(List<String> devMessages) {
+		this.devMessages = devMessages;
+	}
+
+	public String getServiceTitle() {
+		return serviceTitle;
+	}
+
+	public void setServiceTitle(String serviceTitle) {
+		this.serviceTitle = serviceTitle;
+	}
+
+	public String getDisabilitiesHeader() {
+		return disabilitiesHeader;
+	}
+
+	public void setDisabilitiesHeader(String disabilitiesHeader) {
+		this.disabilitiesHeader = disabilitiesHeader;
+	}
+
 }

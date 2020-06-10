@@ -1,6 +1,6 @@
-package gov.va.med.es.fhir.ratingservice.model;
+package gov.va.med.esr.rest.rating.controller;
 
-public class RatedDisability {
+public class RatedDisabilityData {
 	private String disabilityLine1;
 
 	private String serviceConnectedLine2;
